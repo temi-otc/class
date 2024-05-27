@@ -21,5 +21,5 @@ jobs:
 
       steps:
         - name: using variables
-          run: echo "the name of my cloud is ${{env.Cloud}}"
+          run: echo "the name of my cloud is ${{env.ORG}}"
       
