@@ -1,5 +1,4 @@
 
-
 name: CI 
 on:
   push:
@@ -7,29 +6,29 @@ on:
       - main
 
 jobs:
-      build:
+    build:
        defaults:
          run:
            working-directory: ./terraform
 
-    runs-on: ubuntu-latest
+       runs-on: ubuntu-latest
 
-    env:
-      Cloud: "Azure"
+       env:
+        Cloud: "Azure"
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+       steps:
+        - name: Checkout Repository
+          uses: actions/checkout@v4
 
-      - name: using variables
-        run: echo "the name of my cloud is ${{env.Cloud}}"
+        - name: using variables
+          run: echo "the name of my cloud is ${{env.Cloud}}"
       
-      - name: Sensitive data
-        run: echo "get my password:${{secrets.FORTKNOX}}"
+        - name: Sensitive data
+          run: echo "get my password:${{secrets.FORTKNOX}}"
 
-      - name: Using repo variables
-        run: echo "my name is:${{vars.secretname}}"
+        - name: Using repo variables
+          run: echo "my name is:${{vars.secretname}}"
 
-      - name: open terraform folder
-        run: ls ./terraform
+        - name: open terraform folder
+          run: ls ./terraform
 
