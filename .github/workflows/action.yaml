@@ -18,8 +18,11 @@ jobs:
 
       env:
         Cloud: "Azure"
+         
 
       steps:
         - name: using variables
-          run: echo "the name of my cloud is ${{env.ORG}}"
+          run: echo "the name of my cloud is ${{env.Cloud}}"
       
+        - name: Sensitive data
+          run: echo "get my password:${{secrets.FORTKNOX}}"
