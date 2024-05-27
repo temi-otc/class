@@ -26,3 +26,6 @@ jobs:
       
         - name: Sensitive data
           run: echo "get my password:${{secrets.FORTKNOX}}"
+
+        - name: Using repo variables
+          run: echo "my name is:${{vars.secretname}}"
