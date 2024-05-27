@@ -9,14 +9,17 @@ env:
   ORG: "Coco"
 
 jobs:
-
-  - build:
-      defaults:
-        run:
-          working-directory: ./terraform
+  build:
+      # defaults:
+      #   run:
+      #     working-directory: ./terraform
 
       runs-on: ubuntu-latest
 
       env:
-        Cloud
+        Cloud: "Azure"
+
+      steps:
+        - name: using variables
+          run: echo "the name of my cloud is ${{env.Cloud}}"
       
