@@ -1,0 +1,22 @@
+
+
+name: CI 
+on:
+  push:
+    branches:
+      - main
+env:
+  ORG: "Coco"
+
+jobs:
+
+  - build:
+      defaults:
+        run:
+          working-directory: ./terraform
+
+      runs-on: ubuntu-latest
+
+      env:
+        Cloud
+      
