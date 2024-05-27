@@ -1,0 +1,76 @@
+create a Hybrid solution
+
+I want to create a s2S tunnel with an Azure firewall inspecting to and from the remote site
+
+>> I am using the same Resourrce group and Location to simplify things
+
+>> The Firewall and the VPN Gateway will reside in the same Vnet
+
+>> A VPN Gateway will be deployed in a remote Vnet
+
+>> A Spoke Vnet will be dployed which will be peered with the Hub Vnet and "the use remote Gateway" feature enabled
+
+>> A route table will be added to the Gatewaysubnet forcing all traffic destined to the spoke Vnet via the Firewall
+
+>> A route table will also be added to the subnet of choice in the spoke vnet forcing all traffic destined to the Hub network* and remote network and internet via the firewall
+
+>> Three Virtual machines will be created across all Vnets accordingly and they will have the same NSG applied
+
+>> The Spoke VM should have no Public ip - we will be using the Firewall to RDP into it
+
+>> Network and Dnat rules will be configured on the Azure Firewall 
+
+>> The corresponding LNGs and Conenctions will be configured to create the Tunnel
+
+
+
+
+
+A VPN S2S 
+
+A firewall 
+
+Three VMs located in three Vnets
+
+
+Vnet A (Remote) 172.19.0.0/16
+
+Vnet B (Hub Vnet) 100.10.0.0/16
+
+Vnet C (Spoke Vnet) 100.20.0.0/16
+
+A VPN Gateway and a Firewall deployed in the Hub Vnet
+
+A route table associated to the Spoke VM subnet 
+
+6 subnets
+
+Remote Vnet
+
+172.19.0.0/24 - VM Subnet
+172.19.1.0/25 - GW Subnet
+
+Hub Vnet 
+
+100.10.0.0/24 - VM Subnet
+100.10.1.0/25 - FW Subnet
+100.10.2.0/26 - GW Subnet
+
+Spoke Vnet
+
+100.20.0.0/24 - VM Subnet
+
+
+Resource group
+Vnet addresses
+Subnets
+NSGs
+VMs
+Firewall
+VPN Gateways
+Vnet Peerings
+Route tables
+Firewall rules
+LNG + Connections
+
+
