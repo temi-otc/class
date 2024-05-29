@@ -7,9 +7,9 @@ on:
 
 jobs:
     build:
-      #  defaults:
-        #  run:
-          #  working-directory: ./terraform
+       defaults:
+         run:
+           working-directory: ./terraform
 
        runs-on: ubuntu-latest
 
@@ -20,18 +20,21 @@ jobs:
         - name: Checkout Repository
           uses: actions/checkout@v4
 
-        - name: login to Azure
-          uses: azure/login@v2
-          with:
-            creds: ${{ secrets.AZURE_CREDENTIALS }}
-            enable-AzPSSession: true 
+        - name: open terraform folder
+          run: ls ./terraform
 
-        - name: Run Azure PowerShell inline script
-          uses: azure/powershell@v2
-          with:
-           inlineScript: |
-             Get-AzResourceGroup  
-           azPSVersion: "latest"
+        # - name: login to Azure
+        #   uses: azure/login@v2
+        #   with:
+        #     creds: ${{ secrets.AZURE_CREDENTIALS }}
+        #     enable-AzPSSession: true 
+
+        # - name: Run Azure PowerShell inline script
+        #   uses: azure/powershell@v2
+        #   with:
+        #    inlineScript: |
+        #      Get-AzResourceGroup  
+        #    azPSVersion: "latest"
 
 
         # - name: using variables
@@ -43,6 +46,5 @@ jobs:
         # - name: Using repo variables
         #   run: echo "my name is:${{vars.secretname}}"
 
-        # - name: open terraform folder
-        #   run: ls ./terraform
+        
 
