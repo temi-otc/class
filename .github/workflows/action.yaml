@@ -7,9 +7,9 @@ on:
 
 jobs:
     build:
-       defaults:
-         run:
-           working-directory: ./terraform
+      #  defaults:
+      #    run:
+      #      working-directory: ./terraform
 
        runs-on: ubuntu-latest
 
